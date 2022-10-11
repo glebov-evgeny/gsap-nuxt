@@ -9,8 +9,9 @@ body {
   justify-content: center;
   align-items: stretch;
   min-height: 100vh;
-  color: var(--a-color_text);
-  font-family: 'TT Norms', serif;
+  color: var(--color-black);
+  background-color: var(--color-yellow);
+  font-family: 'Comfortaa', serif;
   font-size: 16px;
   font-weight: 400;
 }
@@ -48,12 +49,8 @@ a {
   padding: rem(60) 0 rem(25);
 }
 
-.wrapper {
-  max-width: rem(1600);
-  margin: 0 auto;
-}
 .container {
-  max-width: rem(1600);
+  max-width: rem(1440);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 rem(15);
 }
