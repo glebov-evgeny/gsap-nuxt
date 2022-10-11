@@ -13,8 +13,8 @@
       </div>
       <nav class="header__nav">
         <NuxtLink to="/" class="header__nav-link">Главная</NuxtLink>
-        <NuxtLink to="/about" class="header__nav-link">О компании</NuxtLink>
-        <NuxtLink to="/users" class="header__nav-link">Пользователи</NuxtLink>
+        <!-- <NuxtLink to="/about" class="header__nav-link">О компании</NuxtLink>
+        <NuxtLink to="/users" class="header__nav-link">Пользователи</NuxtLink> -->
       </nav>
     </div>
   </header>
