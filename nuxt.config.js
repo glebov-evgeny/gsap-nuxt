@@ -4,7 +4,7 @@ export default {
   debug: true,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'test',
+    title: 'GSAP/NUXT',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -69,7 +69,6 @@ export default {
   build: {},
 
   env: {
-    NUXT_ENV_S3BACKET: process.env.NUXT_ENV_S3BACKET,
     SITE_FB_PIXEL: process.env.SITE_FB_PIXEL,
     SITE_GTM: process.env.SITE_GTM,
   },

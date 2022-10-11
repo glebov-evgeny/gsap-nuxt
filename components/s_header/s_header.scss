@@ -1,15 +1,80 @@
 @import '@/assets/styles/tools/mixins';
 
-.s-header {
+.header {
   position: fixed;
   z-index: 50;
   top: 0;
   left: 0;
   width: 100%;
+  padding: rem(5) 0;
   min-height: rem(50);
-  padding: rem(10) 0;
   background-color: var(--color-yellow);
+  @include _576 {
+    background-color: var(--color-purple);
+  }
+  @include _768 {
+    padding: rem(10) 0;
+  }
+  &__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logos{
+    width: 100%;
+  }
+  &__logo{
+    width: 100%;
+    max-width: rem(120);
+    min-height: rem(45);
+    background: rgb(189, 189, 189);
+  }
+  &__menu{
+    display: flex;
+		align-items: center;
+		justify-content: center;
+		border: rem(2) solid var(--color-black);
+		border-radius: var(--border-radius-sm);
+    @include _768 {
+      display: none;
+    }
+		.ham {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.5s;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+		}
+		.hamRotate.active {
+      transform: rotate(45deg);
+		}
+		.hamRotate180.active {
+      transform: rotate(180deg);
+		}
+		.line {
+      fill: none;
+      transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+      stroke: var(--color-black);
+      stroke-width: 6.5;
+      stroke-linecap: round;
+		}
+		.hamR .top {
+      stroke-dasharray: 40 121;
+		}
+		.hamR .bottom {
+      stroke-dasharray: 40 121;
+		}
+		.hamR.active .top {
+      stroke-dashoffset: -68px; 
+		}
+		.hamR.active .bottom {
+      stroke-dashoffset: -68px;
+		}
+  }
   &__nav {
+    display: none;
     &-link {
       margin-right: rem(10);
       font-size: rem(18);

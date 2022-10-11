@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <s-main-info />
+    <div><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/></div>
   </main>
 </template>
 
