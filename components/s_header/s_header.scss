@@ -9,6 +9,10 @@
   padding: rem(5) 0;
   min-height: rem(50);
   background-color: var(--color-yellow);
+  transition: .4s;
+  &._scrolled{
+    background-color: var(--color-white);
+  }
   @include _576 {
     background-color: var(--color-purple);
   }
@@ -27,14 +31,15 @@
     width: 100%;
     max-width: rem(120);
     min-height: rem(45);
-    background: rgb(189, 189, 189);
+    background: #ececec56;
   }
   &__menu{
     display: flex;
 		align-items: center;
 		justify-content: center;
-		border: rem(2) solid var(--color-black);
-		border-radius: var(--border-radius-sm);
+    flex-shrink: 0;
+		// border: rem(2) solid var(--color-black);
+		// border-radius: var(--border-radius-sm);
     @include _768 {
       display: none;
     }
