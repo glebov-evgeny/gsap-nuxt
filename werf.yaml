@@ -1,0 +1,56 @@
+{{ $_ := env "CI_PROJECT_PATH_SLUG"  | trunc 49 | trimSuffix "-" | set . "ProjectName" }}
+{{ $_ := env "ENV_NAME_FULL"  | trunc 49 | trimSuffix "-" | set . "EnvName" }}
+{{ $_ := env "NPM_REGISTRY_GROUP" | set . "NpmRegistryGroup" }}
+{{ $_ := env "NPM_AUTH" | set . "NpmAuth" }}
+---
+configVersion: 1
+project: {{ .ProjectName }}
+cleanup:
+  keepPolicies:
+  - references:
+      tag: /.*/
+      limit:
+        last: 2
+  - references:
+      branch: /.*/
+      limit:
+        last: 2
+        operator: And
+    imagesPerReference:
+      last: 2
+      operator: And
+  - references:
+      branch: /^(master)$/
+    imagesPerReference:
+      last: 2
+---
+image: app
+from: node:14-alpine
+docker:
+  WORKDIR: /app
+  ENTRYPOINT: [ "yarn", "start" ]
+git:
+  - add: /
+    to: /app
+    excludePaths:
+      - werf.yaml
+      - werf-giterminism.yaml
+      - .gitlab-ci.yml
+      - .helm
+    stageDependencies:
+      install:
+        - package.json
+      beforeSetup:
+        - "**/*"
+shell:
+  beforeInstall:
+  - apk --update add bash curl
+  install:
+  - cd /app
+  - echo -e "@synergy:registry={{ .NpmRegistryGroup }}\n_auth={{ .NpmAuth }}" >.npmrc
+  - yarn install
+  beforeSetup:
+  - cd /app
+  - export NODE_ENV="{{ .EnvName }}"
+  - yarn build
+---

@@ -1,0 +1,25 @@
+@import '@/assets/styles/tools/mixins';
+
+.s-header {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: rem(50);
+  padding: rem(10) 0;
+  background-color: var(--color-yellow);
+  &__nav {
+    &-link {
+      margin-right: rem(10);
+      font-size: rem(18);
+      line-height: rem(20);
+      &:last-child {
+        margin: 0;
+      }
+      &.nuxt-link-exact-active {
+        font-weight: 600;
+      }
+    }
+  }
+}

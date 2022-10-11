@@ -1,0 +1,26 @@
+@import '@/assets/styles/tools/mixins';
+
+.s-user {
+  padding: rem(30) rem(15);
+  background: #d3f6ff;
+  border-radius: var(--border-radius);
+  transition: 0.3s;
+  &-back {
+    display: block;
+    font-size: rem(16);
+    line-height: rem(18);
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: rem(50);
+  }
+  &-text {
+    margin-bottom: rem(5);
+    font-size: rem(18);
+    line-height: rem(20);
+    span {
+      font-weight: 900;
+    }
+  }
+}

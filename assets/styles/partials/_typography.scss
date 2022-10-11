@@ -1,0 +1,7 @@
+@use '~assets/styles/tools/mixins' as *;
+
+.s-title {
+  margin-bottom: rem(30);
+  font-size: rem(24);
+  line-height: rem(26);
+}

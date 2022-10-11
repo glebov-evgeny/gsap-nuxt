@@ -1,0 +1,16 @@
+@import '@/assets/styles/tools/mixins';
+
+.s-users-card {
+  margin-bottom: rem(15);
+  padding: rem(15);
+  background: #fff;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.01);
+  }
+  &:last-child {
+    margin: 0;
+  }
+}

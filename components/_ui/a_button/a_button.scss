@@ -1,0 +1,15 @@
+@import '@/assets/styles/tools/mixins';
+
+.button {
+  min-height: rem(45);
+  padding: rem(5) rem(15);
+  color: var(--color-white);
+  background: var(--color-grey);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background: var(--color-grey-hover);
+  }
+}

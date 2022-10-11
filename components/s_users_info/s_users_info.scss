@@ -1,0 +1,7 @@
+@import '@/assets/styles/tools/mixins';
+
+.s-users-info {
+  padding: rem(25) rem(15);
+  background: #fde26b;
+  border-radius: var(--border-radius);
+}

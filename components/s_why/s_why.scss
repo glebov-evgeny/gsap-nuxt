@@ -1,0 +1,21 @@
+@import '@/assets/styles/tools/mixins';
+
+.s-why {
+  background: rgb(255, 255, 255);
+  &__test {
+    margin-top: rem(20);
+    padding: rem(10);
+  }
+  &__k {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(100);
+    height: rem(100);
+    background: rgb(145, 136, 136);
+  }
+  &-title {
+    color: #310808;
+    font-size: rem(18);
+  }
+}

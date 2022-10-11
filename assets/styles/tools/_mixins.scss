@@ -1,0 +1,61 @@
+//Функции для работы с компонентнами
+@use 'sass:math';
+
+@function rem($px) {
+  @return math.div($px, 16) + rem;
+}
+
+@mixin _4k {
+  @media (min-width: 3840px) {
+    @content;
+  }
+}
+
+@mixin _2k {
+  @media (min-width: 2048px) {
+    @content;
+  }
+}
+
+@mixin _1920 {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin _1200 {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin _992 {
+  @media (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin _768 {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin _576 {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin _360 {
+  @media (min-width: 360px) {
+    @content;
+  }
+}
+
+@mixin transition {
+  -webkit-transition: all ease-in-out 0.3s;
+  -moz-transition: all ease-in-out 0.3s;
+  -o-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
