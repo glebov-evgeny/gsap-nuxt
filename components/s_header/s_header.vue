@@ -2,7 +2,7 @@
   <header class="header" id="header">
     <div class="container header__container">
       <div class="header__logos">
-        <div class="header__logo"></div>
+        <div class="header__logo">Логотип<br/></div>
       </div>
       <div class="header__menu" v-if="showMenuButton" @click="openMenu">
           <svg class="ham hamRotate hamR" viewBox="0 0 100 100" width="40" ref="ham">
@@ -12,11 +12,11 @@
           </svg>
       </div>
       <nav class="header__nav" :class="{ '_open': isOpenMenu }">
-        <button to="/" class="header__nav-link" @click.prevent="closeMenu">Главная</button>
-        <button to="/about" class="header__nav-link" @click.prevent="closeMenu">О компании</button>
-        <button to="/" class="header__nav-link" @click.prevent="closeMenu">Главная</button>
-        <!-- <NuxtLink to="/about" class="header__nav-link">О компании</NuxtLink>
-        <NuxtLink to="/users" class="header__nav-link">Пользователи</NuxtLink> -->
+        <a href="#" v-for="link in menuItems" 
+          class="header__nav-link" 
+          :key="link.name" 
+          @click.prevent="closeMenu(); scrollToBlock(link.target)" 
+          v-html="link.anchor"></a>
       </nav>
       <div class="header__information" v-if="!showMenuButton">
         <a :href="`tel:${phoneMobileShort}`" class="header__phone">{{phoneMobile}}</a>
@@ -31,7 +31,7 @@ import './s_header.scss';
 
 export default {
   name: 's-header',
-
+  props: ['refs'],
   data() {
     return {
       isScrolled: false,
@@ -42,6 +42,24 @@ export default {
       windowWidth: null,
       phoneMobileShort: '+79162176557',
       phoneMobile: '+7 (916) 217-65-57',
+      menuItems: [
+        {
+          name: 'index1',
+          anchor: 'Ссылка 1',
+          target: 'section01',
+        },
+        {
+          name: 'index2',
+          anchor: 'Ссылка 2',
+          target: 'section02',
+        },
+        {
+          name: 'index3',
+          anchor: 'Ссылка 3',
+          target: 'section012',
+        },
+      ],
+
     };
   },
 
@@ -84,6 +102,13 @@ export default {
         this.$refs.ham.classList.remove('active');
       }
     },
+    scrollToBlock(targetClass) {
+        const target = document.getElementById(targetClass)
+        if(target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    },
+
   },
 
   mounted() {

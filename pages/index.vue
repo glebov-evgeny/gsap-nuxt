@@ -1,13 +1,18 @@
 <template>
   <main class="main">
-    <div><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/></div>
-    <section id="section01">сюда</section>
-    <div><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/><p>.</p><br/></div>
+    <s-intro/>
+    <ALoader/>
+    <s-test/>
   </main>
 </template>
 
 <script>
+import ALoader from "@/components/_ui/a_loader/a_loader.vue"
+
 export default {
+  components: {
+    ALoader
+  },
   data() {
     return {};
   },

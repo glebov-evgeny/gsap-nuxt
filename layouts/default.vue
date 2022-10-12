@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <s-header />
+    <s-header/>
     <Nuxt />
     <!-- <s-footer /> -->
   </div>

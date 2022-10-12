@@ -32,7 +32,13 @@
     width: 100%;
     max-width: rem(120);
     min-height: rem(45);
-    background: #ececec56;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: rem(20);
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: .2;
   }
   &__menu{
     display: flex;
@@ -86,10 +92,11 @@
   }
   &__phone{
     font-size: rem(14);
-    // line-height: rem(20);
     font-weight: 600;
   }
   &__button{
+    font-size: rem(14);
+    font-weight: 600;
     background: transparent;
     border: rem(1) solid var(--color-black);
     border-radius: rem(60);
@@ -97,12 +104,15 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 100px;
+    max-width: rem(100);
     min-height: rem(35);
     margin-left: rem(15);
-    font-size: rem(14);
-    font-weight: 600;
     cursor: pointer;
+    @include _1200 {
+      max-width: rem(150);
+      min-height: rem(45);
+      margin-left: rem(25);
+    }
   }
   &__nav {
     background: var(--color-yellow);
