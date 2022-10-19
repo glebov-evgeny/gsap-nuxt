@@ -1,0 +1,16 @@
+@import '@/assets/styles/tools/mixins';
+
+.section_f {
+  position: relative;
+  min-height: rem(400);
+  background: #8d8d8d;
+  &-sun {
+    position: absolute;
+    top: 15rem;
+    right: 2rem;
+    width: rem(75);
+    height: rem(75);
+    background: #fff;
+    border-radius: 50%;
+  }
+}

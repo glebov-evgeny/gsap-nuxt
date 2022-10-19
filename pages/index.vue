@@ -1,8 +1,10 @@
 <template>
   <main class="main">
-    <s-intro/>
+    <s-intro />
     <!-- <a-loader/> -->
-    <s-test/>
+    <s-test />
+    <s-fun />
+    <s-test />
   </main>
 </template>
 

@@ -24,8 +24,10 @@
     "@vue/cli-service": "^4.5.13",
     "axios": "^0.21.4",
     "core-js": "^3.9.1",
+    "gsap": "^3.11.3",
     "nuxt": "^2.15.7",
     "nuxt-facebook-pixel-module": "^1.5.0",
+    "nuxt-gsap-module": "^1.7.2",
     "swiper": "^5.4.5",
     "vue-awesome-swiper": "^4.1.1",
     "vue-tel-input": "^5.6.2"
