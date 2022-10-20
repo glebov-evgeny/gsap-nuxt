@@ -1,46 +1,59 @@
 @import '@/assets/styles/tools/mixins';
 
 .loader {
+  position: relative;
+  display: inline-block;
   width: rem(50);
   height: rem(50);
   border-radius: 50%;
-  display: inline-block;
-  position: relative;
   vertical-align: middle;
   animation: loader 1.5s infinite linear;
 
   &::before,
   &::after {
-    width: 100%; 
-    height: 100%;
-    border-radius: 50%;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
     animation: loader-spin 1.5s infinite ease-in-out;
   }
 
-  &::after { 
-    animation-direction: reverse; 
+  &::after {
+    animation-direction: reverse;
   }
 
-  &-spin:before,
-  &-spin:after {
-    content:'';
-    margin: -25px 0 0 -25px;
+  &-spin::before,
+  &-spin::after {
+    content: '';
     top: 50%;
     left: 50%;
+    margin: -25px 0 0 -25px;
     background-color: rgba(255, 255, 255, 0.7);
   }
 }
 
-  @keyframes loader {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  @keyframes loader-spin {
-    0%   { transform: scale(0.2); left:   0%; }
-    50%  { transform: scale(1.0); left:  50%; }
-    100% { transform: scale(0.2); left: 100%; }
+@keyframes loader-spin {
+  0% {
+    left: 0%;
+    transform: scale(0.2);
   }
+  50% {
+    left: 50%;
+    transform: scale(1);
+  }
+  100% {
+    left: 100%;
+    transform: scale(0.2);
+  }
+}

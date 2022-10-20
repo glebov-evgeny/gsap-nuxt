@@ -34,9 +34,16 @@ export default {
           scrub: 1,
         },
       });
-      tl.fromTo('.section_f-sun', { opacity: 0, scale: 0.5 }, {
-        opacity: 1, scale: 1, xPercent: -400, y: -50,
-      });
+      tl.fromTo(
+        '.section_f-sun',
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 1,
+          scale: 1,
+          xPercent: -400,
+          y: -50,
+        },
+      );
     },
   },
 };
