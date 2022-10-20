@@ -1,163 +1,171 @@
 @import '@/assets/styles/tools/mixins';
 
 .header {
+  @include _768 {
+    padding: rem(10) 0;
+  }
+
   position: fixed;
   z-index: 50;
   top: 0;
   left: 0;
   width: 100%;
-  padding: rem(5) 0;
   min-height: rem(50);
+  padding: rem(5) 0;
   background-color: var(--color-yellow);
-  transition: .4s;
-  &._scrolled{
-    background-color: var(--color-white);
-    .header__nav{
-      background-color: var(--color-white);
-    }
-  }
-  @include _768 {
-    padding: rem(10) 0;
-  }
-  &__container{
+  transition: 0.4s;
+  &__container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-  }
-  &__logos{
-    width: 100%;
-    max-width: rem(150);
-  }
-  &__logo{
-    width: 100%;
-    max-width: rem(120);
-    min-height: rem(45);
-    display: flex;
     align-items: center;
+  }
+  &__logos {
+    width: 100%;
+    max-width: rem(125);
+  }
+  &__logo {
+    @include _1200 {
+      max-width: rem(75);
+    }
+
+    display: flex;
     justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: rem(50);
     font-size: rem(20);
     font-weight: 900;
     text-transform: uppercase;
-    opacity: .2;
   }
-  &__menu{
+  &__menu {
     display: flex;
-		align-items: center;
-		justify-content: center;
-    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
     margin-right: rem(-10);
-		.ham {
+    flex-shrink: 0;
+    .ham {
       cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform 0.5s;
       -moz-user-select: none;
       -webkit-user-select: none;
       -ms-user-select: none;
       user-select: none;
-		}
-		.hamRotate.active {
+      transition: transform 0.5s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hamRotate.active {
       transform: rotate(45deg);
-		}
-		.hamRotate180.active {
+    }
+    .hamRotate180.active {
       transform: rotate(180deg);
-		}
-		.line {
-      fill: none;
+    }
+    .line {
       transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+      fill: none;
       stroke: var(--color-black);
       stroke-width: 6.5;
       stroke-linecap: round;
-		}
-		.hamR .top {
+    }
+    .hamR .top {
       stroke-dasharray: 40 121;
-		}
-		.hamR .bottom {
+    }
+    .hamR .bottom {
       stroke-dasharray: 40 121;
-		}
-		.hamR.active .top {
-      stroke-dashoffset: -68px; 
-		}
-		.hamR.active .bottom {
+    }
+    .hamR.active .top {
       stroke-dashoffset: -68px;
-		}
+    }
+    .hamR.active .bottom {
+      stroke-dashoffset: -68px;
+    }
   }
-  &__information{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-grow: 2;
+  &__information {
     @include _992 {
       flex-grow: 1;
     }
-  }
-  &__phone{
-    font-size: rem(14);
-    font-weight: 600;
-  }
-  &__button{
-    font-size: rem(14);
-    font-weight: 600;
-    background: transparent;
-    border: rem(1) solid var(--color-black);
-    border-radius: rem(60);
+
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: rem(100);
-    min-height: rem(35);
-    margin-left: rem(15);
-    cursor: pointer;
+    flex-grow: 2;
+  }
+  &__phone {
+    font-size: rem(14);
+    font-weight: 600;
+  }
+  &__button {
     @include _1200 {
       max-width: rem(150);
       min-height: rem(45);
       margin-left: rem(25);
     }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: rem(100);
+    min-height: rem(35);
+    margin-left: rem(15);
+    background: transparent;
+    border: rem(1) solid var(--color-black);
+    border-radius: rem(60);
+    font-size: rem(14);
+    font-weight: 600;
+    cursor: pointer;
   }
   &__nav {
-    background: var(--color-yellow);
-    width: 100%;
+    @include _768 {
+      position: unset;
+      flex-direction: row;
+      width: auto;
+      height: auto;
+      flex-grow: 1;
+    }
+
     position: absolute;
     top: rem(55);
     left: 0;
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     justify-content: flex-end;
-    border-radius: 0 0 rem(15) rem(15);
-    overflow: hidden;
+    width: 100%;
     height: 0;
-    transition: .4s;
-    &._open{
+    background: var(--color-yellow);
+    border-radius: 0 0 rem(15) rem(15);
+    transition: 0.4s;
+    &._open {
       height: rem(160);
     }
-    @include _768 {
-      position: unset;
-      flex-direction: row;
-      flex-grow: 1;
-      height: auto;
-      width: auto;
-    }
     &-link {
-      border: none;
-      background: transparent;
-      margin-right: rem(10);
-      font-size: rem(16);
-      line-height: rem(20);
-      font-weight: 600;
-      padding: rem(10) 0;
+      @include _768 {
+        margin: 0 rem(7);
+        padding: 0;
+      }
+
       margin: 0;
+      margin-right: rem(10);
+      padding: rem(10) 0;
+      background: transparent;
+      border: none;
+      font-size: rem(16);
+      font-weight: 600;
+      line-height: rem(20);
       text-align: center;
       cursor: pointer;
       &:last-child {
-        margin-bottom: rem(15);
         @include _768 {
           margin: 0 rem(7);
         }
+
+        margin-bottom: rem(15);
       }
-      @include _768 {
-        padding: 0;
-        margin: 0 rem(7);
-      }
+    }
+  }
+  &._scrolled {
+    background-color: var(--color-white);
+    .header__nav {
+      background-color: var(--color-white);
     }
   }
 }

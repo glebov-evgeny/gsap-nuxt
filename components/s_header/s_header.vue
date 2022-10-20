@@ -2,24 +2,36 @@
   <header class="header" id="header">
     <div class="container header__container">
       <div class="header__logos">
-        <div class="header__logo">Логотип<br/></div>
+        <img src="@/assets/images/header/tiger.png" class="header__logo" alt="logo" />
       </div>
       <div class="header__menu" v-if="showMenuButton" @click="openMenu">
-          <svg class="ham hamRotate hamR" viewBox="0 0 100 100" width="40" ref="ham">
-              <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
-              <path class="line middle" d="m 70,50 h -40" />
-              <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
-          </svg>
+        <svg class="ham hamRotate hamR" viewBox="0 0 100 100" width="40" ref="ham">
+          <path
+            class="line top"
+            d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20"
+          />
+          <path class="line middle" d="m 70,50 h -40" />
+          <path
+            class="line bottom"
+            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
+          />
+        </svg>
       </div>
-      <nav class="header__nav" :class="{ '_open': isOpenMenu }">
-        <a href="#" v-for="link in menuItems" 
-          class="header__nav-link" 
-          :key="link.name" 
-          @click.prevent="closeMenu(); scrollToBlock(link.target)" 
-          v-html="link.anchor"></a>
+      <nav class="header__nav" :class="{ _open: isOpenMenu }">
+        <a
+          href="#"
+          v-for="link in menuItems"
+          class="header__nav-link"
+          :key="link.name"
+          @click.prevent="
+            closeMenu();
+            scrollToBlock(link.target);
+          "
+          v-html="link.anchor"
+        ></a>
       </nav>
       <div class="header__information" v-if="!showMenuButton">
-        <a :href="`tel:${phoneMobileShort}`" class="header__phone">{{phoneMobile}}</a>
+        <a :href="`tel:${phoneMobileShort}`" class="header__phone">{{ phoneMobile }}</a>
         <button class="header__button">Вход</button>
       </div>
     </div>
@@ -45,21 +57,20 @@ export default {
       menuItems: [
         {
           name: 'index1',
-          anchor: 'Ссылка 1',
+          anchor: 'Обо мне',
           target: 'section01',
         },
         {
           name: 'index2',
-          anchor: 'Ссылка 2',
+          anchor: 'Портфолио',
           target: 'section02',
         },
         {
           name: 'index3',
-          anchor: 'Ссылка 3',
+          anchor: 'Контакты',
           target: 'section012',
         },
       ],
-
     };
   },
 
@@ -75,7 +86,7 @@ export default {
       switch (true) {
         case this.scrollTop > headerHeight:
           this.isScrolled = true;
-          header.classList.add('_scrolled')
+          header.classList.add('_scrolled');
           break;
         default:
           this.isScrolled = false;
@@ -88,27 +99,26 @@ export default {
       /* Отображение кнопки меню */
       this.showMenuButton = !(this.windowWidth > this.showMenuBreakpoint);
       /* Если меню было открытым при ресайзе */
-      if(this.showMenuButton === false){
-        this.isOpenMenu = false
+      if (this.showMenuButton === false) {
+        this.isOpenMenu = false;
       }
     },
-    openMenu(){
+    openMenu() {
       this.isOpenMenu = !this.isOpenMenu;
       this.$refs.ham.classList.toggle('active');
     },
     closeMenu() {
       this.isOpenMenu = false;
-      if(this.$refs.ham){
+      if (this.$refs.ham) {
         this.$refs.ham.classList.remove('active');
       }
     },
     scrollToBlock(targetClass) {
-        const target = document.getElementById(targetClass)
-        if(target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'center' })
-        }
+      const target = document.getElementById(targetClass);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     },
-
   },
 
   mounted() {

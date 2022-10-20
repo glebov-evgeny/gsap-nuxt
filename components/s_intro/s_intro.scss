@@ -4,6 +4,8 @@
   overflow: hidden;
   padding: rem(75) 0 0;
   &__title {
+    position: relative;
+    z-index: 1;
     margin-bottom: rem(20);
     font-size: rem(46);
     font-weight: 900;
