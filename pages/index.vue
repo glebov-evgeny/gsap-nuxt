@@ -2,6 +2,7 @@
   <main class="main">
     <s-intro />
     <s-info />
+    <s-line />
     <!-- <a-loader/> -->
     <s-test />
     <s-fun />

@@ -9,6 +9,8 @@
   }
 
   overflow: hidden;
+  max-width: rem(2500);
+  margin: 0 auto;
   padding: rem(75) 0 0;
   &__container {
     position: relative;
@@ -90,6 +92,10 @@
         background: url('@/assets/images/intro/el-1-d.svg') bottom center no-repeat;
         background-size: contain;
       }
+      @include _2k {
+        width: rem(3500);
+        height: rem(150);
+      }
 
       position: absolute;
       z-index: 5;
@@ -101,40 +107,33 @@
       background-size: contain;
       transform: translateX(-52%);
       animation: intro-el-1 20s infinite ease;
-      @mixin _2k {
-        width: rem(3500);
-        height: rem(150);
-      }
     }
     &-el-2 {
       @include _992 {
-        bottom: rem(20);
+        bottom: 0;
         width: rem(4000);
         height: rem(200);
         background: url('@/assets/images/intro/el-2-d.svg') bottom center no-repeat;
         background-size: contain;
       }
+      @include _2k {
+        width: rem(6000);
+        height: rem(225);
+      }
 
       position: absolute;
       z-index: 4;
       left: 50%;
-      bottom: rem(25);
+      bottom: rem(20);
       width: rem(1500);
       height: rem(80);
       background: url('@/assets/images/intro/el-2-m.svg') bottom center no-repeat;
       background-size: contain;
       transform: translateX(-40%);
       animation: intro-el-2 18s infinite ease-out;
-      @mixin _2k {
-        width: rem(6000);
-        height: rem(225);
-      }
     }
   }
-  @mixin _2k {
-    max-width: 3000px;
-    margin: 0 auto;
-  }
+
   @keyframes intro-el-1 {
     0% {
       transform: translateX(-52%);
