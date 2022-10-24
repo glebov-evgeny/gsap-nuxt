@@ -3,7 +3,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  padding: rem(45) rem(15) rem(15);
+  padding: rem(45) rem(15);
   background: #464646;
   border-radius: rem(10);
   &__title {
@@ -19,6 +19,11 @@
     display: flex;
     flex-direction: column;
     margin-top: rem(30);
+  }
+  &__info {
+    &._center {
+      text-align: center;
+    }
   }
   &__label {
     width: 100%;
@@ -67,5 +72,6 @@
     font-size: rem(16);
     font-weight: 900;
     line-height: 135%;
+    cursor: pointer;
   }
 }

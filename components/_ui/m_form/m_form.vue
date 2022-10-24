@@ -1,6 +1,6 @@
 <template>
   <form class="form" @submit="validateForm">
-    <div class="form__wrapper">
+    <div class="form__wrapper" v-if="formWasSend">
       <div class="form__info">
         <h3 class="form__title">This is form title</h3>
         <p class="form__description">Just simpl form description text for information users.</p>
@@ -28,6 +28,12 @@
         <button class="form__button" type="submit">Отправить</button>
       </div>
     </div>
+    <div class="form__wrapper" v-else>
+      <div class="form__info _center">
+        <h3 class="form__title">Пасиба!</h3>
+        <p class="form__description">всё ок</p>
+      </div>
+    </div>
   </form>
 </template>
 
@@ -44,6 +50,7 @@ export default {
       text: null,
       nameError: false,
       emailError: false,
+      formWasSend: true,
     };
   },
   methods: {
@@ -90,6 +97,7 @@ export default {
       try {
         // eslint-disable-next-line
         emailjs.send('service_chcob9d', 'template_509iqp1', formData);
+        this.formWasSend = false;
       } catch (e) {
         console.error(e);
       }
