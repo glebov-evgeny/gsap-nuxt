@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       swiperOptionSliders: {
-        slidesPerView: 'auto',
+        slidesPerView: 1.5,
         spaceBetween: 20,
         resistance: true,
         resistanceRatio: 0.85,
