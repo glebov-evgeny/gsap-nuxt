@@ -17,7 +17,10 @@ import './s_slider.scss';
 
 export default {
   name: 's-slider',
-  components: {},
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
   data() {
     return {
       swiperOptionSliders: {
