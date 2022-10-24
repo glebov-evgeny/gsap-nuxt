@@ -6,12 +6,12 @@
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus ullam vitae quos quibusdam impedit iste,
         officiis aut praesentium distinctio deserunt similique qui possimus tempore fugiat quas esse perferendis porro?
       </p>
+      <div class="intro__sun"></div>
     </div>
     <div class="intro__decoration">
       <div class="intro__decoration-el-1"></div>
       <div class="intro__decoration-el-2"></div>
     </div>
-    <div class="intro__sun"></div>
   </section>
 </template>
 
@@ -30,7 +30,7 @@ export default {
   methods: {
     updateElement() {
       gsap.fromTo(
-        '.intro__sun', // Target
+        '.intro__sun',
         {
           // Откуда
           opacity: 0,

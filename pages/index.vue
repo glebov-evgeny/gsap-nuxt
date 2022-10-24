@@ -1,6 +1,7 @@
 <template>
   <main class="main">
     <s-intro />
+    <s-info />
     <!-- <a-loader/> -->
     <s-test />
     <s-fun />

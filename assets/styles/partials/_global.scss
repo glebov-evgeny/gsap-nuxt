@@ -1,4 +1,5 @@
 @use '~assets/styles/tools/mixins' as *;
+
 body,
 html {
   overflow-x: hidden;
@@ -53,4 +54,7 @@ a {
   max-width: rem(1440);
   margin: 0 auto;
   padding: 0 rem(15);
+  @media all and (min-width: 992px) {
+    padding: 0 rem(30);
+  }
 }

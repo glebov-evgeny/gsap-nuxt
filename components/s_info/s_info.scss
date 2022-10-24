@@ -1,0 +1,10 @@
+@import '@/assets/styles/tools/mixins';
+
+.info {
+  padding: rem(30) 0;
+  color: var(--color-white);
+  background: var(--color-black);
+  &__description {
+    margin-bottom: rem(50);
+  }
+}

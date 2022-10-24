@@ -17,6 +17,9 @@ export default {
       { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicons/favicon.ico' },
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
     ],
+    script: [
+      { hid: 'emailsender', src: '//cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js', defer: true },
+    ],
   },
   router: {
     base: '/gsap-nuxt/',
@@ -27,6 +30,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '@/plugins/vue-awesome-swiper', mode: 'client' },
+    { src: '@/plugins/emailsender', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
