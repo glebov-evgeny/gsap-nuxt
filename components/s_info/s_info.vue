@@ -45,17 +45,19 @@ export default {
           item,
           {
             y: 75,
+            x: 15,
             opacity: 0,
           },
           {
             y: 0,
+            x: 0,
             opacity: 1,
             scrollTrigger: {
               trigger: item,
               scrub: true,
-              start: 'top 85%',
-              end: 'top 60%',
-              markers: false,
+              start: 'top 90%',
+              end: 'top 65%',
+              markers: true,
             },
           },
         );
