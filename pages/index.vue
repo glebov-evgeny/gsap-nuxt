@@ -3,6 +3,7 @@
     <s-intro />
     <s-info />
     <s-line />
+    <s-slider />
     <!-- <a-loader/> -->
     <s-test />
     <s-fun />

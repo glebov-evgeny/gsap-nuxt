@@ -57,7 +57,7 @@ export default {
               scrub: true,
               start: 'top 90%',
               end: 'top 65%',
-              markers: true,
+              markers: false,
             },
           },
         );
