@@ -1,41 +1,42 @@
 <template>
   <div class="section_f">
     <div class="section_z">...</div>
-    <div class="section_f-sun"></div>
+    <div class="section_f-sun" id="ball"></div>
   </div>
 </template>
 
 <script>
 import './s_fun.scss';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default {
   name: 's-fun',
   data() {
     return {};
   },
+  // mounted() {
+  //   this.updateElementScroll();
+  // },
+
   beforeMount() {
-    gsap.registerPlugin(ScrollTrigger);
     this.updateElementScroll();
   },
-
   methods: {
     updateElementScroll() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section_f',
-          start: 'top 70%',
-          end: 'top 40%',
+          start: 'top -200vh',
+          end: 'bottom',
           repeat: 0,
           ease: 'linear',
           duration: 2,
-          markers: false /* Отображает маркеры анимации */,
+          markers: true,
           scrub: 1,
         },
       });
       tl.fromTo(
-        '.section_f-sun',
+        '#ball',
         { opacity: 0, scale: 0.5 },
         {
           opacity: 1,

@@ -22,7 +22,7 @@
 <script>
 import './s_info.scss';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import MForm from '@/components/_ui/m_form/m_form';
 
 export default {
@@ -33,8 +33,8 @@ export default {
   data() {
     return {};
   },
-  beforeMount() {
-    gsap.registerPlugin(ScrollTrigger);
+  mounted() {
+    // gsap.registerPlugin(ScrollTrigger);
     this.updateElement();
   },
   methods: {

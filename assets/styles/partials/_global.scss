@@ -48,6 +48,33 @@ a {
 .main {
   min-height: calc(100vh - rem(50));
   padding: rem(60) 0 rem(25);
+  &__horizontal {
+    height: 100vh;
+  }
+  &__section {
+    width: 100vw;
+    // height: 100vh;
+    &._01 {
+      background: rgb(0, 0, 0);
+    }
+    &._02 {
+      width: 200vw;
+      background: rgb(194, 241, 253);
+    }
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+#horizontal {
+  display: inline-flex;
+  width: min-content;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .container {
