@@ -8,6 +8,7 @@
       <div class="main__horizontal" id="horizontal">
         <section class="main__section _01">...</section>
         <section class="main__section _02">...</section>
+        <section class="main__section _03">...</section>
       </div>
     </div>
     <!-- <a-loader/> -->
@@ -35,7 +36,7 @@ export default {
     horizontalElement() {
       const horizontal = document.getElementById('horizontal');
       const horizontalContainer = document.getElementById('horizontalContainer');
-
+      // console.log(horizontalContainer.clientWidth, horizontal.clientWidth)
       gsap.to('#horizontal', {
         x: () => horizontalContainer.clientWidth - horizontal.clientWidth,
         ease: 'none',

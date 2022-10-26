@@ -54,10 +54,10 @@ export default {
             opacity: 1,
             scrollTrigger: {
               trigger: item,
-              scrub: true,
               start: 'top 90%',
-              end: 'top 65%',
+              end: 'top 50%',
               markers: false,
+              scrub: 0.5,
             },
           },
         );

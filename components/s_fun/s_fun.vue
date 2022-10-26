@@ -26,12 +26,13 @@ export default {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: '.section_f',
-          start: 'top -200vh',
+          start:
+            'top -200vh' /* нужно точнее рассчитать высоту для старта анимации, исходя из предшестующих экранов с горизонтальным скроллом */,
           end: 'bottom',
           repeat: 0,
           ease: 'linear',
           duration: 2,
-          markers: true,
+          markers: false,
           scrub: 1,
         },
       });

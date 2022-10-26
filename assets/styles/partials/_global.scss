@@ -55,11 +55,14 @@ a {
     width: 100vw;
     // height: 100vh;
     &._01 {
-      background: rgb(0, 0, 0);
+      background: var(--color-black);
     }
     &._02 {
+      background: var(--color-white);
+    }
+    &._03 {
       width: 200vw;
-      background: rgb(194, 241, 253);
+      background: var(--color-grey);
     }
   }
 }
