@@ -32,7 +32,7 @@
       </nav>
       <div class="header__information" v-if="!showMenuButton">
         <a :href="`tel:${phoneMobileShort}`" class="header__phone">{{ phoneMobile }}</a>
-        <button class="header__button">Вход</button>
+        <button class="header__button" @click.stop="popupIsOpen">Вход</button>
       </div>
     </div>
   </header>
@@ -112,6 +112,9 @@ export default {
       if (this.$refs.ham) {
         this.$refs.ham.classList.remove('active');
       }
+    },
+    popupIsOpen() {
+      this.$emit('popupIsOpen');
     },
     scrollToBlock(targetClass) {
       const target = document.getElementById(targetClass);

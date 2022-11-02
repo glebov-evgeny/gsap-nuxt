@@ -7,7 +7,7 @@
         Perspiciatis?
       </p>
       <div class="info__block">
-        <m-form />
+        <m-form-question />
         <div class="info__box">
           <div class="info__item _01">1</div>
           <div class="info__item _02">2</div>
@@ -22,19 +22,17 @@
 <script>
 import './s_info.scss';
 import { gsap } from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import MForm from '@/components/_ui/m_form/m_form';
+import MFormQuestion from '@/components/_ui/m_form/m_form';
 
 export default {
   name: 's-info',
   components: {
-    MForm,
+    MFormQuestion,
   },
   data() {
     return {};
   },
   mounted() {
-    // gsap.registerPlugin(ScrollTrigger);
     this.updateElement();
   },
   methods: {

@@ -74,4 +74,11 @@
     line-height: 135%;
     cursor: pointer;
   }
+  &._compact {
+    padding: 0;
+    background: none;
+    .form__input {
+      border: rem(2) solid var(--color-grey);
+    }
+  }
 }

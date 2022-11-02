@@ -5,6 +5,9 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'GSAP/NUXT',
+    htmlAttrs: {
+      lang: 'ru',
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,8 +17,8 @@ export default {
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
     ],
     link: [
-      { rel: 'shortcut icon', type: 'image/x-icon', href: '/favicons/favicon.ico' },
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+      { rel: 'shortcut icon', type: 'image/x-icon', href: 'favicon.ico' },
+      { rel: 'icon', type: 'image/png', href: 'favicon.ico' },
     ],
     script: [
       { hid: 'emailsender', src: '//cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js', defer: true },
@@ -51,9 +54,25 @@ export default {
     // https://github.com/nuxt-community/robots-module
     '@nuxtjs/robots',
     // https://github.com/nuxt-community/gtm-module
-    '@nuxtjs/gtm',
+    // '@nuxtjs/gtm',
     // https://www.npmjs.com/package/nuxt-facebook-pixel-module
-    'nuxt-facebook-pixel-module',
+    // 'nuxt-facebook-pixel-module',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: 'AIzaSyByz0NfPnOyBfRjvCoEUmfwiKLPqeLMU3w',
+          authDomain: 'gsup-nuxt.firebaseapp.com',
+          projectId: 'gsup-nuxt',
+          storageBucket: 'gsup-nuxt.appspot.com',
+          messagingSenderId: '227979751457',
+          appId: '1:227979751457:web:4fce469f14a79f5c403360',
+        },
+        services: {
+          auth: true,
+        },
+      },
+    ],
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -68,7 +87,7 @@ export default {
       lang: 'ru',
     },
   },
-
+  loading: '~/components/_ui/a_loader/a_loader.vue',
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['gsap'],

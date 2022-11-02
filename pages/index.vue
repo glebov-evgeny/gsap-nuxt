@@ -1,33 +1,40 @@
 <template>
-  <main class="main">
-    <s-intro />
-    <s-info />
-    <s-line />
-    <s-slider />
-    <div class="w-full h-screen overflow-hidden" id="horizontalContainer">
-      <div class="main__horizontal" id="horizontal">
-        <section class="main__section _01">...</section>
-        <section class="main__section _02">...</section>
-        <section class="main__section _03">...</section>
+  <div class="wrapper">
+    <s-header @popupIsOpen="popupIsOpen" />
+    <main class="main">
+      <s-intro />
+      <s-info />
+      <s-line />
+      <s-slider />
+      <div class="w-full h-screen overflow-hidden" id="horizontalContainer">
+        <div class="main__horizontal" id="horizontal">
+          <section class="main__section _01">...</section>
+          <section class="main__section _02">...</section>
+          <section class="main__section _03">...</section>
+        </div>
       </div>
-    </div>
-    <!-- <a-loader/> -->
-    <s-test />
-    <s-fun />
-    <s-test />
-  </main>
+      <s-test />
+      <s-fun />
+      <s-test />
+      <s-popup :show="popuIsShow" @popupIsClosed="popupIsClosed">
+        <m-form className="_compact" />
+      </s-popup>
+    </main>
+  </div>
 </template>
 
 <script>
-// import ALoader from "@/components/_ui/a_loader/a_loader.vue"
+import MForm from '@/components/_ui/m_form/m_form';
 import { gsap } from 'gsap';
 
 export default {
   components: {
-    // ALoader
+    MForm,
   },
   data() {
-    return {};
+    return {
+      popuIsShow: false,
+    };
   },
   mounted() {
     this.horizontalElement();
@@ -50,6 +57,12 @@ export default {
           invalidateOnRefresh: true,
         },
       });
+    },
+    popupIsOpen() {
+      this.popuIsShow = true;
+    },
+    popupIsClosed() {
+      this.popuIsShow = false;
     },
   },
 };

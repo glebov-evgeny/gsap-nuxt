@@ -24,7 +24,7 @@
             placeholder="Почта"
           />
         </label>
-        <!-- <textarea v-model.trim="text" class="form__textarea" placeholder="Text"></textarea> -->
+        <textarea v-model.trim="text" class="form__textarea" placeholder="Text"></textarea>
         <button class="form__button" type="submit">Отправить</button>
       </div>
     </div>
@@ -38,10 +38,10 @@
 </template>
 
 <script>
-import './m_form.scss';
+import '../m_form/m_form';
 
 export default {
-  name: 'm-form',
+  name: 'm-form-question',
   props: {
     className: {
       type: String,

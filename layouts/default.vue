@@ -1,9 +1,5 @@
 <template>
-  <div class="wrapper">
-    <s-header />
-    <Nuxt />
-    <!-- <s-footer /> -->
-  </div>
+  <Nuxt />
 </template>
 
 <script>
