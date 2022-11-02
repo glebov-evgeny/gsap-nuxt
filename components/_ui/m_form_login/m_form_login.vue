@@ -24,6 +24,7 @@
             placeholder="Пароль"
           />
         </label>
+        <p class="form__error" v-if="errorMessageShow">{{ errorMessageText }}</p>
         <button class="form__button" type="submit">Отправить</button>
         <button class="form__change" type="button" @click.stop="changeFormLoginOrRegistration">- Registration -</button>
       </div>
@@ -55,6 +56,9 @@ export default {
       emailError: false,
       passwordError: false,
       formWasSend: true,
+      errorMessageText:
+        'Тест сообщения об ошибке с большим пребольшим тестом, где подробно рассказывается, что могло пойти не так и куда на самом деле пошло.',
+      errorMessageShow: false,
       currentClass: this.className,
     };
   },
@@ -94,32 +98,46 @@ export default {
     async loginUser() {
       try {
         const user = await this.$fire.auth.signInWithEmailAndPassword(this.email, this.password);
+        // добавляю информацию о том, что пользователь залогинен в store и localStorage
         this.$store.commit('setToken', user.user.uid);
         localStorage.setItem('user', user.user.uid);
+        // убираю сообщение об ошибках с бэка
+        this.errorMessageText = '';
+        this.errorMessageShow = false;
+        // скрываю форму и показываю "thank-success"
         this.formWasSend = false;
         // this.$router.push('/main')
       } catch (error) {
         if (error.message === 'Firebase: Error (auth/wrong-password).') {
-          console.log('такие дела');
-          // setErrorData({...errorData, form: 'Неправильный пароль'} )
+          this.somethingWrong('Неправильный логин/пароль.');
           // eslint-disable-next-line max-len
         } else if (
           error.message === 'Firebase: Error (auth/user-not-found).'
           || error.message
             === 'Firebase: There is no user record corresponding to this identifier. The user may have been deleted. (auth/user-not-found).'
         ) {
-          // setErrorData({...errorData, form: 'Пользователь не найден'} )
-          console.log('Пользователь не найден');
+          this.somethingWrong('Пользователь не найден.');
         } else {
           console.error(`Ошибка: ${error.message}`);
         }
       }
     },
+    somethingWrong(errorText) {
+      this.emailError = true;
+      this.passwordError = true;
+      this.errorMessageText = errorText;
+      this.errorMessageShow = true;
+    },
     async signInGoogle() {
       const provider = new this.$fireModule.auth.GoogleAuthProvider();
       const user = await this.$fire.auth.signInWithPopup(provider);
+      // добавляю информацию о том, что пользователь залогинен в store и localStorage
       this.$store.commit('setToken', user.user.uid);
       localStorage.setItem('user', user.user.uid);
+      // убираю сообщение об ошибках с бэка
+      this.errorMessageText = '';
+      this.errorMessageShow = false;
+      // скрываю форму и показываю "thank-success"
       this.formWasSend = false;
       // this.$router.push('/main')
     },

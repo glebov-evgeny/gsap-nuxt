@@ -89,6 +89,13 @@
     line-height: 135%;
     cursor: pointer;
   }
+  &__error {
+    margin-bottom: rem(15);
+    color: var(--color-purple);
+    font-size: rem(12);
+    font-weight: 900;
+    line-height: 135%;
+  }
   &._compact {
     padding: 0;
     background: none;

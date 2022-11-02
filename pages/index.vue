@@ -45,7 +45,20 @@ export default {
     this.horizontalElement();
     this.isUserLogged();
   },
+  watch: {
+    popuIsShow() {
+      this.hideYScroll();
+    },
+  },
   methods: {
+    hideYScroll() {
+      const htmlWrapper = document.querySelector('html');
+      if (this.popuIsShow) {
+        htmlWrapper.style.overflow = 'hidden';
+      } else {
+        htmlWrapper.style.overflow = 'initial';
+      }
+    },
     horizontalElement() {
       const horizontal = document.getElementById('horizontal');
       const horizontalContainer = document.getElementById('horizontalContainer');

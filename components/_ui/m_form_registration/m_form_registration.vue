@@ -24,6 +24,7 @@
             placeholder="Пароль"
           />
         </label>
+        <p class="form__error" v-if="errorMessageShow">{{ errorMessageText }}</p>
         <button class="form__button" type="submit">Отправить</button>
         <button class="form__change" type="button" @click.stop="changeFormLoginOrRegistration">- войти -</button>
       </div>
@@ -55,6 +56,9 @@ export default {
       emailError: false,
       passwordError: false,
       formWasSend: true,
+      errorMessageText:
+        'Тест сообщения об ошибке с многословным пояснением и подробным описанием проблемы, для визуализации переполнения контейнера излишней информацией.',
+      errorMessageShow: false,
       currentClass: this.className,
     };
   },
@@ -91,15 +95,35 @@ export default {
         this.passwordError = true;
       }
     },
+    somethingWrong(errorText) {
+      this.emailError = true;
+      this.passwordError = true;
+      this.errorMessageText = errorText;
+      this.errorMessageShow = true;
+    },
     async createUser() {
       try {
         const user = await this.$fire.auth.createUserWithEmailAndPassword(this.email, this.password);
+        // добавляю информацию о том, что пользователь залогинен в store и localStorage
         this.$store.commit('setToken', user.user.uid);
         localStorage.setItem('user', user.user.uid);
+        // убираю сообщение об ошибках с бэка
+        this.errorMessageText = '';
+        this.errorMessageShow = false;
+        // скрываю форму и показываю "thank-success"
         this.formWasSend = false;
         // this.$router.push('/main')
-      } catch (e) {
-        console.error(e);
+      } catch (error) {
+        if (error.message === 'Firebase: Error (auth/wrong-password).') {
+          this.somethingWrong('Неправильный логин/пароль.');
+        } else if (
+          error.message
+          === 'Firebase: The email address is already in use by another account. (auth/email-already-in-use).'
+        ) {
+          this.somethingWrong('Пользователь с таким email уже зарегистрирован.');
+        } else {
+          console.error(`Ошибка: ${error.message}`);
+        }
       }
     },
     changeFormLoginOrRegistration() {

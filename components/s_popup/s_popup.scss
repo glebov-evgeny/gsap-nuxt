@@ -8,11 +8,14 @@
   left: 0;
   bottom: 0;
   display: flex;
+  overflow: hidden;
+  overflow-y: auto;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(0.5rem);
   &__content {
-    min-width: 30rem;
+    width: calc(100% - 2rem);
+    max-width: rem(500);
     margin: 0 auto;
     padding: 2rem;
     background: var(--color-white);
