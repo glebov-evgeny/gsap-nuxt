@@ -2,7 +2,7 @@
   <form class="form" :class="currentClass" @submit="validateForm">
     <div class="form__wrapper" v-if="formWasSend">
       <div class="form__info">
-        <h3 class="form__title">Registrationr</h3>
+        <h3 class="form__title">Registration</h3>
         <p class="form__description">Description text for information.</p>
       </div>
       <div class="form__content">
@@ -25,6 +25,7 @@
           />
         </label>
         <button class="form__button" type="submit">Отправить</button>
+        <button class="form__change" type="button" @click.stop="changeFormLoginOrRegistration">- войти -</button>
       </div>
     </div>
     <div class="form__wrapper" v-else>
@@ -37,10 +38,10 @@
 </template>
 
 <script>
-import './m_form.scss';
+import '../m_form/m_form';
 
 export default {
-  name: 'm-form',
+  name: 'm-form-registration',
   props: {
     className: {
       type: String,
@@ -64,15 +65,13 @@ export default {
       } else {
         this.validEmail(this.email);
       }
-      if (this.name == null) {
-        this.nameError = true;
+      if (this.password == null) {
+        this.passwordError = true;
       } else {
-        this.validName(this.name);
+        this.validPassword(this.password);
       }
-
-      // Если валидация пройдена:
-      if (this.nameError === false && this.emailError === false) {
-        this.sendForm();
+      if (this.passwordError === false && this.emailError === false) {
+        this.createUser();
       }
       e.preventDefault();
     },
@@ -84,27 +83,27 @@ export default {
         this.emailError = true;
       }
     },
-    validName(name) {
-      const result = /^[a-zA-ZА-Яа-яЁё\s]+$/;
-      if (result.test(name)) {
-        this.nameError = false;
+    // eslint-disable-next-line no-unused-vars
+    validPassword(password) {
+      if (this.password.length > 6) {
+        this.passwordError = false;
       } else {
-        this.nameError = true;
+        this.passwordError = true;
       }
     },
-    async sendForm() {
-      const formData = {
-        name: this.name,
-        useremail: this.email,
-        text: this.text,
-      };
+    async createUser() {
       try {
-        // eslint-disable-next-line
-        emailjs.send('service_chcob9d', 'template_509iqp1', formData);
+        const user = await this.$fire.auth.createUserWithEmailAndPassword(this.email, this.password);
+        this.$store.commit('setToken', user.user.uid);
+        localStorage.setItem('user', user.user.uid);
         this.formWasSend = false;
+        // this.$router.push('/main')
       } catch (e) {
         console.error(e);
       }
+    },
+    changeFormLoginOrRegistration() {
+      this.$emit('changeFormPopup');
     },
   },
 };

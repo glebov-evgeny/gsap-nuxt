@@ -22,7 +22,7 @@
 <script>
 import './s_info.scss';
 import { gsap } from 'gsap';
-import MFormQuestion from '@/components/_ui/m_form/m_form';
+import MFormQuestion from '@/components/_ui/m_form_question/m_form_question';
 
 export default {
   name: 's-info',

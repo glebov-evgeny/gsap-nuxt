@@ -58,6 +58,21 @@
     font-size: rem(16);
     line-height: 135%;
   }
+  &__change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: rem(25);
+    margin: rem(15) auto 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: rem(14);
+    font-weight: 900;
+    line-height: 135%;
+    cursor: pointer;
+  }
   &__button {
     display: flex;
     justify-content: center;
@@ -79,6 +94,10 @@
     background: none;
     .form__input {
       border: rem(2) solid var(--color-grey);
+      &.error {
+        border: rem(2) solid var(--color-purple);
+        box-shadow: inset 0 0 rem(5) var(--color-purple);
+      }
     }
   }
 }

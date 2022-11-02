@@ -32,7 +32,10 @@
       </nav>
       <div class="header__information" v-if="!showMenuButton">
         <a :href="`tel:${phoneMobileShort}`" class="header__phone">{{ phoneMobile }}</a>
-        <button class="header__button" @click.stop="popupIsOpen">Вход</button>
+        <!-- <button class="header__button" @click.stop="popupIsOpen">Вход</button> -->
+        <!-- <button class="header__button" @click.stop="info">???</button> -->
+        <button class="header__button" v-if="this.$store.state.token" @click.stop="logout">Выход</button>
+        <button class="header__button" v-else @click.stop="popupIsOpen">Вход</button>
       </div>
     </div>
   </header>
@@ -54,6 +57,7 @@ export default {
       windowWidth: null,
       phoneMobileShort: '+79162176557',
       phoneMobile: '+7 (916) 217-65-57',
+      isLogin: false,
       menuItems: [
         {
           name: 'index1',
@@ -121,6 +125,12 @@ export default {
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+    },
+    logout() {
+      this.$store.dispatch('logout');
+      localStorage.removeItem('user');
+      // console.log(this.$store.state.token);
+      // this.$router.push('/')
     },
   },
 

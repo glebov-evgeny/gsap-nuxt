@@ -17,27 +17,33 @@
       <s-fun />
       <s-test />
       <s-popup :show="popuIsShow" @popupIsClosed="popupIsClosed">
-        <m-form className="_compact" />
+        <m-form-registration v-if="registrationOrLoginForm" className="_compact" @changeFormPopup="changeFormPopup" />
+        <m-form-login v-else className="_compact" @changeFormPopup="changeFormPopup" />
       </s-popup>
     </main>
   </div>
 </template>
 
 <script>
-import MForm from '@/components/_ui/m_form/m_form';
+// import MForm from '@/components/_ui/m_form/m_form';
 import { gsap } from 'gsap';
+import MFormRegistration from '@/components/_ui/m_form_registration/m_form_registration';
+import MFormLogin from '@/components/_ui/m_form_login/m_form_login';
 
 export default {
   components: {
-    MForm,
+    MFormRegistration,
+    MFormLogin,
   },
   data() {
     return {
       popuIsShow: false,
+      registrationOrLoginForm: true,
     };
   },
   mounted() {
     this.horizontalElement();
+    this.isUserLogged();
   },
   methods: {
     horizontalElement() {
@@ -58,8 +64,17 @@ export default {
         },
       });
     },
+    isUserLogged() {
+      // Проверяю локалсторадж, если user есть - беру значение в store
+      if (localStorage.getItem('user') !== null) {
+        this.$store.commit('setToken', localStorage.getItem('user'));
+      }
+    },
     popupIsOpen() {
       this.popuIsShow = true;
+    },
+    changeFormPopup() {
+      this.registrationOrLoginForm = !this.registrationOrLoginForm;
     },
     popupIsClosed() {
       this.popuIsShow = false;
