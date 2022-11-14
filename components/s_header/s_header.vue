@@ -29,11 +29,13 @@
           "
           v-html="link.anchor"
         ></a>
+        <div class="header__nav-auth">
+          <button class="header__button" v-if="this.$store.state.token" @click.stop="logout">Выход</button>
+          <button class="header__button" v-else @click.stop="popupIsOpen">Вход</button>
+        </div>
       </nav>
       <div class="header__information" v-if="!showMenuButton">
         <a :href="`tel:${phoneMobileShort}`" class="header__phone">{{ phoneMobile }}</a>
-        <!-- <button class="header__button" @click.stop="popupIsOpen">Вход</button> -->
-        <!-- <button class="header__button" @click.stop="info">???</button> -->
         <button class="header__button" v-if="this.$store.state.token" @click.stop="logout">Выход</button>
         <button class="header__button" v-else @click.stop="popupIsOpen">Вход</button>
       </div>
@@ -46,7 +48,12 @@ import './s_header.scss';
 
 export default {
   name: 's-header',
-  props: ['refs'],
+  props: {
+    popupIsClosed: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {
       isScrolled: false,
@@ -80,7 +87,11 @@ export default {
 
   computed: {},
 
-  watch: {},
+  watch: {
+    popupIsClosed() {
+      this.closeMenu();
+    },
+  },
 
   methods: {
     handleScroll() {

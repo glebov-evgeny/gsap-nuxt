@@ -25,6 +25,7 @@ export default {
     ],
   },
   router: {
+    // middleware: 'loggedIn',
     base: '/gsap-nuxt/',
   },
   // Global CSS: https://go.nuxtjs.dev/config-css

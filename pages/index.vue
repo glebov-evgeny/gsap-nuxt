@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <s-header @popupIsOpen="popupIsOpen" />
+    <s-header @popupIsOpen="popupIsOpen" :popupIsClosed="popuIsShow" />
     <main class="main">
       <s-intro />
       <s-info />
@@ -56,7 +56,7 @@ export default {
       if (this.popuIsShow) {
         htmlWrapper.style.overflow = 'hidden';
       } else {
-        htmlWrapper.style.overflow = 'initial';
+        htmlWrapper.style.overflow = 'auto';
       }
     },
     horizontalElement() {

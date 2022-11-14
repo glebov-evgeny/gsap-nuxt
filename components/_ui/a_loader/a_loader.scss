@@ -1,12 +1,16 @@
 @import '@/assets/styles/tools/mixins';
 
 .loader {
-  position: relative;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
   display: inline-block;
   width: rem(50);
   height: rem(50);
   border-radius: 50%;
   vertical-align: middle;
+  transform: translate(-50%, -50%);
   animation: loader 1.5s infinite linear;
 
   &::before,
@@ -30,7 +34,7 @@
     top: 50%;
     left: 50%;
     margin: -25px 0 0 -25px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(193, 14, 14, 0.7);
   }
 }
 
