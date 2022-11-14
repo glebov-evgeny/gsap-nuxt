@@ -54,6 +54,7 @@ export default {
     '@nuxtjs/pwa',
     // https://github.com/nuxt-community/robots-module
     '@nuxtjs/robots',
+    '@nuxtjs/i18n',
     // https://github.com/nuxt-community/gtm-module
     // '@nuxtjs/gtm',
     // https://www.npmjs.com/package/nuxt-facebook-pixel-module
@@ -108,6 +109,25 @@ export default {
     UserAgent: '*',
     Disallow: '/admin',
     Allow: '*',
+  },
+
+  i18n: {
+    defaultLocale: 'ru',
+    locales: [
+      {
+        code: 'ru',
+        iso: 'ru-RU',
+        // domain: localeDomains.ru
+      },
+      {
+        code: 'en',
+        iso: 'en-US',
+        // domain: localeDomains.en
+      },
+    ],
+    differentDomains: false,
+    vueI18nLoader: true,
+    detectBrowserLanguage: false,
   },
 
   // GTM

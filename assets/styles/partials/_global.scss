@@ -90,3 +90,14 @@ a {
     padding: 0 rem(30);
   }
 }
+.select__lang {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 3rem;
+  margin: 1rem 0;
+  &-link {
+    margin: 0 .2rem;
+    font-size: .8rem;
+  }
+}
