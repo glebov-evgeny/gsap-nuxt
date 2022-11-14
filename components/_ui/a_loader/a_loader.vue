@@ -1,14 +1,22 @@
 <template>
-  <div class="loader loader-spin"></div>
+  <div v-if="loading" class="loader loader-spin"></div>
 </template>
 
 <script>
 import './a_loader.scss';
 
 export default {
-  name: 'a-loader',
-  data() {
-    return {};
+  name: 'Aloader',
+  data: () => ({
+    loading: false,
+  }),
+  methods: {
+    start() {
+      this.loading = true;
+    },
+    finish() {
+      this.loading = false;
+    },
   },
 };
 </script>
