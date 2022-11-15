@@ -20,7 +20,7 @@
       <nav class="header__nav" :class="{ _open: isOpenMenu }">
         <a
           href="#"
-          v-for="link in menuItems"
+          v-for="link in $t('menuItems')"
           class="header__nav-link"
           :key="link.name"
           @click.prevent="
@@ -30,14 +30,14 @@
           v-html="link.anchor"
         ></a>
         <div class="header__nav-auth">
-          <button class="header__button" v-if="this.$store.state.token" @click.stop="logout">Выход</button>
-          <button class="header__button" v-else @click.stop="popupIsOpen">Вход</button>
+          <button class="header__button" v-if="this.$store.state.token" @click.stop="logout">{{ $t('logout') }}</button>
+          <button class="header__button" v-else @click.stop="popupIsOpen">{{ $t('login') }}</button>
         </div>
       </nav>
       <div class="header__information" v-if="!showMenuButton">
         <a :href="`tel:${phoneMobileShort}`" class="header__phone">{{ phoneMobile }}</a>
-        <button class="header__button" v-if="this.$store.state.token" @click.stop="logout">Выход</button>
-        <button class="header__button" v-else @click.stop="popupIsOpen">Вход</button>
+        <button class="header__button" v-if="this.$store.state.token" @click.stop="logout">{{ $t('logout') }}</button>
+        <button class="header__button" v-else @click.stop="popupIsOpen">{{ $t('login') }}</button>
       </div>
     </div>
   </header>
@@ -65,23 +65,6 @@ export default {
       phoneMobileShort: '+79162176557',
       phoneMobile: '+7 (916) 217-65-57',
       isLogin: false,
-      menuItems: [
-        {
-          name: 'index1',
-          anchor: 'Обо мне',
-          target: 'section01',
-        },
-        {
-          name: 'index2',
-          anchor: 'Портфолио',
-          target: 'section02',
-        },
-        {
-          name: 'index3',
-          anchor: 'Контакты',
-          target: 'section012',
-        },
-      ],
     };
   },
 
@@ -163,3 +146,4 @@ export default {
   },
 };
 </script>
+<i18n lang="json" src="./s_header.json" />
