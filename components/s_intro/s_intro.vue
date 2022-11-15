@@ -5,6 +5,7 @@
       <p class="intro__description">
         {{ $t('text') }}
       </p>
+      <p>{{ this.$store.state.token }}</p>
       <div class="select__lang">
         <nuxt-link :to="switchLocalePath('ru')" class="select__lang-link">
           <div class="s-footer__lang-logo">ru</div>

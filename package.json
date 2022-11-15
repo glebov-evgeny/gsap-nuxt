@@ -26,6 +26,8 @@
     "@nuxtjs/robots": "^2.5.0",
     "@vue/cli-service": "^4.5.13",
     "axios": "^0.21.4",
+    "cookie": "^0.5.0",
+    "cookie-universal-nuxt": "^2.2.2",
     "core-js": "^3.9.1",
     "firebase": "^9.13.0",
     "gsap": "^3.11.3",

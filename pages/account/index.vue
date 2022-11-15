@@ -23,6 +23,7 @@
 <script>
 export default {
   components: {},
+  middleware: 'auth',
   data() {
     return {
       popuIsShow: false,

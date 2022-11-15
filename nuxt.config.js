@@ -26,7 +26,7 @@ export default {
     ],
   },
   router: {
-    // middleware: 'loggedIn',
+    // middleware: 'auth',
     base: '/gsap-nuxt/',
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -55,6 +55,7 @@ export default {
     '@nuxtjs/pwa',
     // https://github.com/nuxt-community/robots-module
     '@nuxtjs/robots',
+    'cookie-universal-nuxt',
     '@nuxtjs/i18n',
     // https://github.com/nuxt-community/gtm-module
     // '@nuxtjs/gtm',
