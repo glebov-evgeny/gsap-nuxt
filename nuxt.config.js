@@ -3,7 +3,7 @@ process.env.DEBUG = 'nuxt:*';
 export default {
   debug: true,
   ssr: true,
-  target: 'server',
+  target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'GSAP/NUXT',
