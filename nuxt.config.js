@@ -2,8 +2,8 @@ process.env.DEBUG = 'nuxt:*';
 
 export default {
   debug: true,
-  // ssr: false,
-  target: 'static',
+  ssr: true,
+  target: 'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'GSAP/NUXT',
@@ -55,7 +55,7 @@ export default {
     '@nuxtjs/pwa',
     // https://github.com/nuxt-community/robots-module
     '@nuxtjs/robots',
-    // ['cookie-universal-nuxt', { alias: 'cookiz' }],
+    ['cookie-universal-nuxt', { parseJSON: false }],
     // '@nuxtjs/auth-next',
     '@nuxtjs/i18n',
     // https://github.com/nuxt-community/gtm-module

@@ -98,9 +98,10 @@ export default {
     async loginUser() {
       try {
         const user = await this.$fire.auth.signInWithEmailAndPassword(this.email, this.password);
-        // добавляю информацию о том, что пользователь залогинен в store и localStorage
+        // добавляю информацию о том, что пользователь залогинен в store и cookies
         this.$store.commit('setToken', user.user.uid);
-        localStorage.setItem('user', user.user.uid);
+        // localStorage.setItem('user', user.user.uid);
+        this.$cookies.set('user', user.user.uid);
 
         // убираю сообщение об ошибках с бэка
         this.errorMessageText = '';
@@ -132,9 +133,10 @@ export default {
     async signInGoogle() {
       const provider = new this.$fireModule.auth.GoogleAuthProvider();
       const user = await this.$fire.auth.signInWithPopup(provider);
-      // добавляю информацию о том, что пользователь залогинен в store и localStorage
+      // добавляю информацию о том, что пользователь залогинен в store и cookies
       this.$store.commit('setToken', user.user.uid);
-      localStorage.setItem('user', user.user.uid);
+      // localStorage.setItem('user', user.user.uid);
+      this.$cookies.set('user', user.user.uid);
 
       // убираю сообщение об ошибках с бэка
       this.errorMessageText = '';

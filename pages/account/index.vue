@@ -30,7 +30,7 @@ export default {
     MFormRegistration,
     MFormLogin,
   },
-  middleware: 'authIn',
+  middleware: 'auth',
   data() {
     return {
       popuIsShow: false,
@@ -55,9 +55,10 @@ export default {
       }
     },
     isUserLogged() {
-      // Проверяю локалсторадж, если user есть - беру значение в store
-      if (localStorage.getItem('user') !== null) {
-        this.$store.commit('setToken', localStorage.getItem('user'));
+      // Проверяю cookies, если user есть - беру значение в store
+      if (this.$cookies.get('user')) {
+        this.$store.commit('setToken', this.$cookies.get('user'));
+        console.log(this.$cookies.get('user'));
       }
     },
     popupIsOpen() {

@@ -107,7 +107,7 @@ export default {
         // добавляю информацию о том, что пользователь залогинен в store и localStorage
         this.$store.commit('setToken', user.user.uid);
         localStorage.setItem('user', user.user.uid);
-
+        this.$cookies.set('user', user.user.uid);
         // убираю сообщение об ошибках с бэка
         this.errorMessageText = '';
         this.errorMessageShow = false;

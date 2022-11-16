@@ -122,9 +122,9 @@ export default {
     },
     logout() {
       this.$store.dispatch('logout');
-      localStorage.removeItem('user');
-      // console.log(this.$store.state.token);
-      // this.$router.push('/')
+      // localStorage.removeItem('user');
+      this.$cookies.remove('user');
+      this.$router.push('/');
     },
   },
 
