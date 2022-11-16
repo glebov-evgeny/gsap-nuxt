@@ -2,6 +2,7 @@ process.env.DEBUG = 'nuxt:*';
 
 export default {
   debug: true,
+  // ssr: false,
   target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -26,7 +27,6 @@ export default {
     ],
   },
   router: {
-    // middleware: 'auth',
     base: '/gsap-nuxt/',
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -55,7 +55,8 @@ export default {
     '@nuxtjs/pwa',
     // https://github.com/nuxt-community/robots-module
     '@nuxtjs/robots',
-    'cookie-universal-nuxt',
+    // ['cookie-universal-nuxt', { alias: 'cookiz' }],
+    // '@nuxtjs/auth-next',
     '@nuxtjs/i18n',
     // https://github.com/nuxt-community/gtm-module
     // '@nuxtjs/gtm',
@@ -85,6 +86,33 @@ export default {
     debug: false,
   },
 
+  // auth: {
+  //   redirect: {
+  //     login: '/not',
+  //     logout: '/yes',
+  //     callback: '/sa',
+  //     home: false,
+  //   },
+  //   strategies: {
+  //     local: {
+  //       token: {
+  //         property: 'user',
+  //         global: true,
+  //         // required: true,
+  //         // type: 'Bearer'
+  //       },
+  //       user: {
+  //         property: 'user',
+  //         autoFetch: false,
+  //       },
+  //       endpoints: {
+  //         login: { url: '/api/login', method: 'post' },
+  //         logout: { url: '/api/auth/logout', method: 'post' },
+  //         user: { url: '/', method: 'get' },
+  //       },
+  //     },
+  //   },
+  // },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {

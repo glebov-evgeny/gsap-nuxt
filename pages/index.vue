@@ -44,6 +44,8 @@ export default {
   mounted() {
     this.horizontalElement();
     this.isUserLogged();
+    // eslint-disable-next-line no-undef
+    emailjs.init('lSiwUD9_iX1bEyngQ');
   },
   watch: {
     popuIsShow() {
