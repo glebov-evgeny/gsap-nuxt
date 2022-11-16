@@ -108,4 +108,15 @@
       }
     }
   }
+  &__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: rem(15);
+    &-icon {
+      max-width: rem(20);
+      margin: 0 rem(10);
+      cursor: pointer;
+    }
+  }
 }

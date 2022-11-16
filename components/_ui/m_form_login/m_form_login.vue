@@ -27,6 +27,11 @@
         <p class="form__error" v-if="errorMessageShow">{{ errorMessageText }}</p>
         <button class="form__button" type="submit">Отправить</button>
         <button class="form__change" type="button" @click.stop="changeFormLoginOrRegistration">- Registration -</button>
+        <div class="form__social">
+          <div class="form__social-icon" @click.stop="signInGoogle">
+            <img src="@/assets/images/common/google.png" class="form__social-image" alt="icon" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="form__wrapper" v-else>
