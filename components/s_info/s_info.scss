@@ -1,0 +1,41 @@
+@import '@/assets/styles/tools/mixins';
+
+.info {
+  padding: rem(30) 0;
+  color: var(--color-white);
+  background: var(--color-black);
+  &__description {
+    margin-bottom: rem(50);
+  }
+  &__block {
+    @include _768 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(30);
+    }
+
+    display: flex;
+    flex-direction: column;
+  }
+  &__box {
+    @include _768 {
+      gap: rem(30);
+      margin: 0;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(15);
+    margin-top: rem(30);
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: rem(100);
+    color: var(--color-black);
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+  }
+}

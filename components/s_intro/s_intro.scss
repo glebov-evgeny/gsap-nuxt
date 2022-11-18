@@ -1,9 +1,26 @@
 @import '@/assets/styles/tools/mixins';
 
 .intro {
+  @include _768 {
+    padding: rem(125) 0 0;
+  }
+  @include _992 {
+    padding: rem(175) 0 0;
+  }
+
   overflow: hidden;
+  max-width: rem(3000);
+  margin: 0 auto;
   padding: rem(75) 0 0;
+  &__container {
+    position: relative;
+  }
   &__title {
+    @include _768 {
+      margin-bottom: rem(35);
+      font-size: rem(64);
+    }
+
     position: relative;
     z-index: 1;
     margin-bottom: rem(20);
@@ -12,58 +29,110 @@
     line-height: 115%;
     text-transform: uppercase;
     span {
+      @include _768 {
+        display: inline-block;
+      }
+
       display: block;
       color: transparent;
       -webkit-text-stroke: 1px var(--color-black);
-      @media screen and (min-width: 768px) {
-        display: inline-block;
-      }
     }
   }
   &__description {
+    @include _768 {
+      font-size: rem(20);
+    }
+    @include _992 {
+      max-width: rem(750);
+    }
+
     max-width: 90%;
     font-size: rem(18);
     line-height: 135%;
   }
   &__sun {
+    @include _768 {
+      top: -2rem;
+      right: 4rem;
+    }
+    @include _992 {
+      width: rem(175);
+      height: rem(175);
+    }
+
     position: absolute;
-    top: 8rem;
-    right: 2rem;
+    top: -0.5rem;
+    right: 0.75rem;
     width: rem(75);
     height: rem(75);
     background: #fff;
     border-radius: 50%;
   }
   &__decoration {
+    @include _576 {
+      margin-top: rem(50);
+    }
+    @include _768 {
+      margin-top: rem(75);
+    }
+    @include _992 {
+      min-height: rem(175);
+      margin-top: rem(75);
+    }
+
     position: relative;
     width: 100%;
-    min-height: rem(125);
-    margin-top: rem(75);
+    min-height: rem(80);
+    margin-top: rem(35);
     &-el-1 {
+      @include _992 {
+        bottom: rem(-10);
+        width: rem(3000);
+        height: rem(175);
+        background: url('@/assets/images/intro/el-1-d.svg') bottom center no-repeat;
+        background-size: contain;
+      }
+      @include _2k {
+        width: rem(4000);
+        height: rem(175);
+      }
+
       position: absolute;
       z-index: 5;
       left: 50%;
       bottom: 0;
-      width: rem(2500);
-      height: rem(125);
-      background: url('@/assets/images/intro/el-1-d.svg') bottom center no-repeat;
+      width: rem(1500);
+      height: rem(80);
+      background: url('@/assets/images/intro/el-1-m.svg') bottom center no-repeat;
       background-size: contain;
       transform: translateX(-52%);
       -webkit-animation: intro-el-1 20s infinite ease;
       animation: intro-el-1 20s infinite ease;
     }
     &-el-2 {
+      @include _992 {
+        bottom: 0;
+        width: rem(4000);
+        height: rem(200);
+        background: url('@/assets/images/intro/el-2-d.svg') bottom center no-repeat;
+        background-size: contain;
+      }
+      @include _2k {
+        width: rem(6000);
+        height: rem(225);
+      }
+
       position: absolute;
       z-index: 4;
       left: 50%;
-      bottom: rem(10);
-      width: rem(2500);
-      height: rem(125);
-      background: url('@/assets/images/intro/el-2-d.svg') bottom center no-repeat;
+      bottom: rem(20);
+      width: rem(1500);
+      height: rem(80);
+      background: url('@/assets/images/intro/el-2-m.svg') bottom center no-repeat;
       background-size: contain;
       transform: translateX(-40%);
-      -webkit-animation: intro-el-2 18s infinite ease-out;
-      animation: intro-el-2 18s infinite ease-out;
+      -webkit-animation: intro-el-2 28s infinite ease-out;
+      animation: intro-el-2 28s infinite ease-out;
     }
   }
   @-webkit-keyframes intro-el-1 {
@@ -71,7 +140,7 @@
       transform: translateX(-52%);
     }
     50% {
-      transform: translateX(-48%) translateY(10%);
+      transform: translateX(-48%);
     }
     100% {
       transform: translateX(-52%);
@@ -82,7 +151,7 @@
       transform: translateX(-52%);
     }
     50% {
-      transform: translateX(-48%) translateY(10%);
+      transform: translateX(-48%);
     }
     100% {
       transform: translateX(-52%);

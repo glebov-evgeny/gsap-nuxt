@@ -1,17 +1,25 @@
 <template>
   <section class="intro">
     <div class="container intro__container">
-      <h1 class="intro__title">Lorem, <br /><span>ipsum</span> dolor.</h1>
+      <h1 class="intro__title" v-html="$t('title')"></h1>
       <p class="intro__description">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus ullam vitae quos quibusdam impedit iste,
-        officiis aut praesentium distinctio deserunt similique qui possimus tempore fugiat quas esse perferendis porro?
+        {{ $t('text') }}
       </p>
+      <p>{{ this.$store.state.token }}</p>
+      <div class="select__lang">
+        <nuxt-link :to="switchLocalePath('ru')" class="select__lang-link">
+          <div class="s-footer__lang-logo">ru</div>
+        </nuxt-link>
+        <nuxt-link :to="switchLocalePath('en')" class="select__lang-link">
+          <div class="s-footer__lang-logo">en</div>
+        </nuxt-link>
+      </div>
+      <div class="intro__sun"></div>
     </div>
     <div class="intro__decoration">
       <div class="intro__decoration-el-1"></div>
       <div class="intro__decoration-el-2"></div>
     </div>
-    <div class="intro__sun"></div>
   </section>
 </template>
 
@@ -30,7 +38,7 @@ export default {
   methods: {
     updateElement() {
       gsap.fromTo(
-        '.intro__sun', // Target
+        '.intro__sun',
         {
           // Откуда
           opacity: 0,
@@ -51,3 +59,5 @@ export default {
   },
 };
 </script>
+
+<i18n lang="json" src="./s_intro.json" />

@@ -1,7 +1,12 @@
 @use '~assets/styles/tools/mixins' as *;
 
-.s-title {
+.title {
   margin-bottom: rem(30);
-  font-size: rem(24);
-  line-height: rem(26);
+  font-size: rem(28);
+  line-height: 135%;
+}
+
+.description {
+  font-size: rem(18);
+  line-height: 135%;
 }

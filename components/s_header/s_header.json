@@ -1,0 +1,44 @@
+{
+  "ru": {
+    "menuItems": [
+      {
+        "name": "index1",
+        "anchor": "Обо мне",
+        "target": "section01"
+      },
+      {
+        "name": "index2",
+        "anchor": "Портфолио",
+        "target": "section02"
+      },
+      {
+        "name": "index3",
+        "anchor": "Контакты",
+        "target": "section012"
+      }
+    ],
+    "login": "Войти",
+    "logout": "Выйти"
+  },
+  "en": {
+    "menuItems": [
+      {
+        "name": "index1",
+        "anchor": "About",
+        "target": "section01"
+      },
+      {
+        "name": "index2",
+        "anchor": "Portfolio",
+        "target": "section02"
+      },
+      {
+        "name": "index3",
+        "anchor": "Сontacts",
+        "target": "section012"
+      }
+    ],
+    "login": "Log in",
+    "logout": "Log out"
+  }
+}

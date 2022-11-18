@@ -1,0 +1,122 @@
+@import '@/assets/styles/tools/mixins';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: rem(45) rem(15);
+  background: #464646;
+  border-radius: var(--border-radius);
+  &__title {
+    font-size: rem(24);
+    line-height: 135%;
+  }
+  &__description {
+    margin-top: rem(15);
+    font-size: rem(18);
+    line-height: 135%;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-top: rem(30);
+  }
+  &__info {
+    &._center {
+      text-align: center;
+    }
+  }
+  &__label {
+    width: 100%;
+    margin-bottom: rem(10);
+  }
+  &__input {
+    display: flex;
+    width: 100%;
+    min-height: rem(45);
+    padding: rem(5) rem(15);
+    background: var(--color-white);
+    border: rem(2) solid var(--color-white);
+    border-radius: var(--border-radius-sm);
+    outline: none;
+    font-size: rem(16);
+    line-height: 135%;
+    &.error {
+      border: rem(2) solid var(--color-purple);
+      box-shadow: inset 0 0 rem(5) var(--color-purple);
+    }
+  }
+  &__textarea {
+    resize: vertical;
+    width: 100%;
+    min-height: rem(120);
+    margin-bottom: rem(10);
+    padding: rem(5) rem(15);
+    background: var(--color-white);
+    border: rem(2) solid var(--color-white);
+    border-radius: var(--border-radius-sm);
+    outline: none;
+    font-size: rem(16);
+    line-height: 135%;
+  }
+  &__change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: rem(25);
+    margin: rem(15) auto 0;
+    color: var(--color-black);
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: rem(14);
+    font-weight: 900;
+    line-height: 135%;
+    cursor: pointer;
+  }
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: rem(45);
+    color: var(--color-black);
+    background: var(--color-yellow);
+    border: rem(2) solid var(--color-yellow);
+    border-radius: var(--border-radius-sm);
+    outline: none;
+    font-size: rem(16);
+    font-weight: 900;
+    line-height: 135%;
+    cursor: pointer;
+  }
+  &__error {
+    margin-bottom: rem(15);
+    color: var(--color-purple);
+    font-size: rem(12);
+    font-weight: 900;
+    line-height: 135%;
+  }
+  &._compact {
+    padding: 0;
+    background: none;
+    .form__input {
+      border: rem(2) solid var(--color-grey);
+      &.error {
+        border: rem(2) solid var(--color-purple);
+        box-shadow: inset 0 0 rem(5) var(--color-purple);
+      }
+    }
+  }
+  &__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: rem(15);
+    &-icon {
+      max-width: rem(20);
+      margin: 0 rem(10);
+      cursor: pointer;
+    }
+  }
+}

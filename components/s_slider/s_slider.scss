@@ -1,0 +1,48 @@
+@import '@/assets/styles/tools/mixins';
+
+.slider {
+  padding: rem(50) 0;
+  // color: var(--color-white);
+  // background: var(--color-black);
+  .swiper-container {
+    overflow: visible;
+  }
+  &__item {
+    @include _1200 {
+      // max-width: rem(400);
+      height: rem(400);
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    // max-width: rem(300);
+    height: rem(300);
+    color: #fff;
+    background: #000;
+    border-radius: var(--border-radius);
+    &.swiper-slide {
+      @include _768 {
+        height: rem(260);
+        opacity: 0.8;
+        transform: translateY(rem(20));
+      }
+      @include _992 {
+        height: rem(360);
+      }
+
+      transition: 0.3s;
+      transform: translateY(rem(-50));
+      &-active {
+        @include _992 {
+          height: rem(400);
+        }
+
+        height: rem(300);
+        opacity: 1;
+        transform: translateY(rem(0));
+      }
+    }
+  }
+}
