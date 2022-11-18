@@ -49,6 +49,7 @@
       background: url('@/assets/images/intro/el-1-d.svg') bottom center no-repeat;
       background-size: contain;
       transform: translateX(-52%);
+      -webkit-animation: intro-el-1 20s infinite ease;
       animation: intro-el-1 20s infinite ease;
     }
     &-el-2 {
@@ -61,7 +62,19 @@
       background: url('@/assets/images/intro/el-2-d.svg') bottom center no-repeat;
       background-size: contain;
       transform: translateX(-40%);
+      -webkit-animation: intro-el-2 18s infinite ease-out;
       animation: intro-el-2 18s infinite ease-out;
+    }
+  }
+  @-webkit-keyframes intro-el-1 {
+    0% {
+      transform: translateX(-52%);
+    }
+    50% {
+      transform: translateX(-48%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-52%);
     }
   }
   @keyframes intro-el-1 {
@@ -73,6 +86,17 @@
     }
     100% {
       transform: translateX(-52%);
+    }
+  }
+  @-webkit-keyframes intro-el-2 {
+    0% {
+      transform: translateX(-40%);
+    }
+    50% {
+      transform: translateX(-60%) translateY(15%);
+    }
+    100% {
+      transform: translateX(-40%);
     }
   }
   @keyframes intro-el-2 {
